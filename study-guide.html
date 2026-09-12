@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cues STEM</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brandBg: "#0b0f19",
+              brandBorder: "#1f2937",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-brandBg text-slate-100 min-h-screen flex flex-col font-sans">
+    <!-- NAVBAR (Do not edit this in other files once copy-pasted) -->
+    <header class="border-b border-brandBorder bg-slate-950/80 px-6 py-4">
+      <div class="max-w-6xl mx-auto flex items-center justify-between">
+        <a href="index.html" class="text-xl font-bold text-cyan-400">
+          CUES<span class="text-slate-500 text-sm font-normal">.stem</span>
+        </a>
+
+        <nav
+          class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300"
+        >
+          <a href="lessons.html" class="hover:text-white">Lessons</a>
+          <a href="math.html" class="hover:text-amber-400">Math</a>
+          <a href="physics.html" class="hover:text-cyan-400">Physics</a>
+          <a href="chemistry.html" class="hover:text-emerald-400">Chemistry</a>
+          <a href="it.html" class="hover:text-indigo-400">IT</a>
+          <a href="study-guide.html" class="hover:text-white">Study Guide</a>
+          <a href="for-teachers.html" class="hover:text-white">For Teachers</a>
+          <a href="about.html" class="hover:text-white">About</a>
+          <a
+            href="signin.html"
+            class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-1.5 rounded-md border border-slate-700"
+            >Sign In</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-1 max-w-5xl w-full mx-auto p-6 md:p-10 space-y-10">
+      <div class="space-y-4 max-w-2xl">
+        <h1 class="text-4xl font-bold text-white tracking-tight">
+          Study Guide
+        </h1>
+        <p class="text-slate-400 text-lg leading-relaxed">
+          Olympiad-level STEM requires more than just memorizing formulas. Here
+          are the core heuristics and techniques for building true visual
+          intuition.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Technique 1 -->
+        <div
+          class="p-6 rounded-2xl border border-brandBorder bg-slate-900/50 space-y-4 relative overflow-hidden group hover:border-indigo-500/50 transition-colors"
+        >
+          <div
+            class="absolute top-0 right-0 w-24 h-24 bg-indigo-500/10 rounded-bl-full -z-10 group-hover:bg-indigo-500/20 transition-colors"
+          ></div>
+          <h3 class="text-xl font-bold text-white">The Feynman Technique</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            If you can't explain a concept in simple terms, you don't understand
+            it. After watching a derivation, close the PDF and try to explain
+            the mechanism aloud from scratch.
+          </p>
+        </div>
+
+        <!-- Technique 2 -->
+        <div
+          class="p-6 rounded-2xl border border-brandBorder bg-slate-900/50 space-y-4 relative overflow-hidden group hover:border-emerald-500/50 transition-colors"
+        >
+          <div
+            class="absolute top-0 right-0 w-24 h-24 bg-emerald-500/10 rounded-bl-full -z-10 group-hover:bg-emerald-500/20 transition-colors"
+          ></div>
+          <h3 class="text-xl font-bold text-white">Active Recall</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Re-reading textbooks creates an illusion of competence. Force your
+            brain to retrieve information. Use blank sheets of paper to derive
+            formulas without looking at the source.
+          </p>
+        </div>
+
+        <!-- Technique 3 -->
+        <div
+          class="p-6 rounded-2xl border border-brandBorder bg-slate-900/50 space-y-4 relative overflow-hidden group hover:border-cyan-500/50 transition-colors"
+        >
+          <div
+            class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/10 rounded-bl-full -z-10 group-hover:bg-cyan-500/20 transition-colors"
+          ></div>
+          <h3 class="text-xl font-bold text-white">Visual Mapping</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Never accept an algebraic equation without mapping it to a physical
+            geometry. Ask yourself: "What does this variable physically stretch,
+            compress, or rotate?"
+          </p>
+        </div>
+      </div>
+
+      <div
+        class="mt-8 p-6 bg-cyan-500/10 border border-cyan-500/20 rounded-xl flex items-start gap-4"
+      >
+        <div class="mt-1">
+          <svg
+            class="w-6 h-6 text-cyan-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+        </div>
+        <div>
+          <h4 class="text-white font-bold">Pro Tip for Competitions</h4>
+          <p class="text-slate-400 text-sm mt-1">
+            When doing practice sets, spend 80% of your time on the problems you
+            got wrong. Identify exactly which heuristic or logical leap you
+            missed, and write it down.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER(TEXT KOJI STOJI DOLE)-->
+    <footer
+      class="border-t border-brandBorder px-6 py-6 text-center text-sm text-slate-500"
+    >
+      © 2026 Cues STEM. Open access educational platform.
+    </footer>
+  </body>
+</html>
