@@ -108,7 +108,3 @@ function renderLessons(subjectFilter) {
 function playVideo(url) {
   alert(`In v2.0, this will open the HTML5 player for: ${url}`);
 }
-function toggleMobileMenu() {
-  const menu = document.getElementById("mobile-menu");
-  menu.classList.toggle("hidden");
-}
