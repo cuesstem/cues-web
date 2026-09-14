@@ -9,7 +9,6 @@ class Lesson {
   }
 
   createCardHTML() {
-    // Dynamic colors based on subject
     let borderColor =
       this.subject === "physics"
         ? "hover:border-cyan-400"
@@ -93,7 +92,6 @@ const lessonDB = [
   ),
 ];
 
-// RENDER FUNCTION
 function renderLessons(subjectFilter) {
   const container = document.getElementById("lesson-grid");
   if (!container) return;
@@ -107,8 +105,10 @@ function renderLessons(subjectFilter) {
     container.innerHTML += lesson.createCardHTML();
   });
 }
-
-// VIDEO PLAYER TRIGGER (Prototype behavior)
 function playVideo(url) {
   alert(`In v2.0, this will open the HTML5 player for: ${url}`);
+}
+function toggleMobileMenu() {
+  const menu = document.getElementById("mobile-menu");
+  menu.classList.toggle("hidden");
 }
