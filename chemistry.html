@@ -127,22 +127,47 @@
         id="article-grid"
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
       ></div>
+      <div
+        id="video-modal"
+        class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center z-50 p-4"
+      >
+        <div
+          class="relative w-full max-w-4xl bg-slate-900 border border-brandBorder rounded-2xl overflow-hidden shadow-2xl"
+        >
+          
+          <button
+            onclick="closeVideo()"
+            class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl font-bold z-10 bg-slate-800/80 rounded-full w-8 h-8 flex items-center justify-center"
+          >
+            &times;
+          </button>
+
+      
+          <div class="relative aspect-video w-full bg-black">
+            <iframe
+              id="video-frame"
+              class="w-full h-full"
+              src=""
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
     </main>
 
     
-    <script src="lessons.js"></script>
-    <script>
-      renderLessons("chemistry"); // Change to 'math', 'chemistry', or 'it' on other pages
-    </script>
     
       <class="border-t border-brandBorder px-6 py-6 text-center text-sm text-slate-500"
     >
       © 2026 Cues STEM. Open access educational platform.
     </footer>
     <script src="main.js"></script>
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            renderArticles('chemistry');
+            renderLessons('chemistry');
+            renderArticles("chemistry");
         });
     </script>
   </body>
