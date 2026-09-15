@@ -57,7 +57,7 @@ const lessonDB = [
     "Moment of Inertia",
     "physics",
     "Why mass distribution determines rotational resistance.",
-    "https://www.youtube.com/embed?v=6unef5Hz6SU",
+    "https://www.youtube.com/embed/6unef5Hz6SU",
     "./pdfs/inertia.pdf",
   ),
   new Lesson(
