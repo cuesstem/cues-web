@@ -5,12 +5,12 @@ function toggleMobileMenu() {
 
 class Article {
   //Creates the actual class
-  constructor(id, page, title, description, text, subject) {
+  constructor(id, page, title, description, subject) {
     this.id = id;
     this.page = page;
     this.title = title;
     this.description = description;
-    this.text = text;
+
     this.subject = subject;
   }
   //
@@ -41,9 +41,9 @@ class Article {
                 </div>
                 
                 <div class="flex gap-3 mt-6">
-                    <button onclick="LoadArticle(${this})" class="bg-slate-100 hover:bg-white text-slate-950 font-bold px-4 py-2 rounded-lg text-sm transition-colors w-full text-center">
+                    <a href="articles/${this.id}" class="bg-slate-100 hover:bg-white text-slate-950 font-bold px-4 py-2 rounded-lg text-sm transition-colors w-full text-center block">
                         See More
-                    </button>
+                    </a>
                 </div>
             </div>
         `;
@@ -51,7 +51,7 @@ class Article {
   }
   //
 }
-function renderLessons(pageFilter) {
+function renderArticles(pageFilter) {
   const container = document.getElementById("article-grid");
   if (!container) return;
 
@@ -64,6 +64,4 @@ function renderLessons(pageFilter) {
     container.innerHTML += article.createHTML();
   });
 }
-function LoadArticle(article) {
-  //TODO: Write the code that supports this infrastructure in HTML files(article-grid, etc etc), Write this function, implement the proper code in the HTML files for this function
-}
+const articleDB = [new Article("test", "math", "test123", "test234", "math")];

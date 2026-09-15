@@ -147,6 +147,10 @@
           </p>
         </div>
       </div>
+      <div
+        id="article-grid"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      ></div>
     </main>
 
     <footer
@@ -154,6 +158,12 @@
     >
       © 2026 Cues STEM. Open access educational platform.
     </footer>
+
     <script src="main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        renderArticles("about");
+      });
+    </script>
   </body>
 </html>
