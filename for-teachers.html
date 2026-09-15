@@ -47,11 +47,13 @@
             >For Teachers</a
           >
           <a href="about" class="hover:text-white transition-colors">About</a>
-          <a
-            href="signin"
-            class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-1.5 rounded-md border border-slate-700 transition-all"
-            >Sign In</a
-          >
+          <div id="auth-container">
+            <a
+              href="signin.html"
+              class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-1.5 rounded-md border border-slate-700 transition-all"
+              >Sign In</a
+            >
+          </div>
         </nav>
 
         <button
@@ -183,6 +185,7 @@
       © 2026 Cues STEM. Open access educational platform.
     </footer>
     <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         renderArticles("teachers");

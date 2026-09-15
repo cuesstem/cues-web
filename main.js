@@ -1,3 +1,78 @@
+const SUPABASEURL = "https://fqhlfvoopeqazmzmmqnk.supabase.co";
+const SUPABASE_ANON_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZxaGxmdm9vcGVxYXptem1tcW5rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk0ODcwMTMsImV4cCI6MjEwNTA2MzAxM30.iMNShXqk_aQlRU-EdDNpjeIghcfBQK6WgKA_zZy8qPk";
+
+const supabaseClient = window.supabase.createClient(
+  SUPABASEURL,
+  SUPABASE_ANON_KEY,
+);
+async function signUpUser(email, password, username) {
+  const { data, error } = await supabaseClient.auth.signUp({
+    email: email,
+    password: password,
+    options: {
+      data: {
+        username: username,
+      },
+    },
+  });
+
+  if (error) {
+    alert("Sign up failed: " + error.message);
+    return;
+  }
+
+  alert("Account created! Check your email or sign in.");
+  window.location.href = "signin.html";
+}
+async function loginUser(email, password) {
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
+    email: email,
+    password: password,
+  });
+
+  if (error) {
+    alert("Login failed: " + error.message);
+    return;
+  }
+
+  alert("Successfully logged in!");
+  window.location.href = "index.html";
+}
+async function checkUserSession() {
+  const {
+    data: { session },
+  } = await supabaseClient.auth.getSession();
+  if (session) {
+    console.log("Logged in user:", session.user.email);
+  } else {
+    console.log("No user logged in.");
+  }
+}
+
+async function updateNavbarAuth() {
+  const authContainer = document.getElementById("auth-container");
+  if (!authContainer) return;
+
+  const {
+    data: { session },
+  } = await supabaseClient.auth.getSession();
+
+  if (session) {
+    const username =
+      session.user.user_metadata?.username || session.user.email.split("@")[0];
+
+    authContainer.innerHTML = `
+            <div class="flex flex-col text-right">
+                <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold leading-tight">Logged in</span>
+                <span class="text-sm font-bold text-white leading-tight">${username}</span>
+            </div>
+        `;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", updateNavbarAuth);
+
 function toggleMobileMenu() {
   const menu = document.getElementById("mobile-menu");
   menu.classList.toggle("hidden");
