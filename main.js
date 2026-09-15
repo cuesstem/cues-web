@@ -23,7 +23,7 @@ async function signUpUser(email, password, username) {
   }
 
   alert("Account created! Check your email or sign in.");
-  window.location.href = "signin.html";
+  window.location.href = "signin";
 }
 async function loginUser(email, password) {
   const { data, error } = await supabaseClient.auth.signInWithPassword({
@@ -37,7 +37,7 @@ async function loginUser(email, password) {
   }
 
   alert("Successfully logged in!");
-  window.location.href = "index.html";
+  window.location.href = "index";
 }
 async function checkUserSession() {
   const {
@@ -51,8 +51,8 @@ async function checkUserSession() {
 }
 
 async function updateNavbarAuth() {
-  const authContainer = document.getElementById("auth-container");
-  if (!authContainer) return;
+  const desktopSlot = document.getElementById("desktop-auth-slot");
+  const mobileSlot = document.getElementById("mobile-auth-slot");
 
   const {
     data: { session },
@@ -62,14 +62,20 @@ async function updateNavbarAuth() {
     const username =
       session.user.user_metadata?.username || session.user.email.split("@")[0];
 
-    authContainer.innerHTML = `
-            <div class="flex flex-col text-right">
-                <span class="text-[10px] uppercase tracking-wider text-slate-400 font-semibold leading-tight">Logged in</span>
-                <span class="text-sm font-bold text-white leading-tight">${username}</span>
+    // The unified layout for both mobile and desktop main bars
+    const userHtml = `
+            <div class="flex flex-col text-right leading-tight">
+                <span class="text-[9px] uppercase tracking-wider text-slate-400 font-semibold">Logged in</span>
+                <span class="text-xs md:text-sm font-bold text-white">${username}</span>
             </div>
         `;
+
+    if (desktopSlot) desktopSlot.innerHTML = userHtml;
+    if (mobileSlot) mobileSlot.innerHTML = userHtml;
   }
 }
+
+document.addEventListener("DOMContentLoaded", updateNavbarAuth);
 
 document.addEventListener("DOMContentLoaded", updateNavbarAuth);
 
